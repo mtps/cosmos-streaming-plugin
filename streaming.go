@@ -70,3 +70,7 @@ func (e exampleStreamingService) ListenDeliverTx(ctx sdk.Context, req abci.Reque
 func (e exampleStreamingService) Close() error {
 	panic("implement me")
 }
+
+func (e exampleStreamingService) HaltAppOnDeliveryError() bool {
+	panic("implement me")
+}
