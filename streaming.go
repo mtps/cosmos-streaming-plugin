@@ -40,7 +40,7 @@ func NewExampleStreamingService(storeKeys []types.StoreKey, c codec.BinaryCodec)
 	iw := NewIntermediateWriter(listenChan)
 	listener := types.NewStoreKVPairWriteListener(iw, c)
 	listeners := make(map[types.StoreKey][]types.WriteListener, len(storeKeys))
-	// in this case, we are using the same listener for each Store
+	// In this case, we are using the same listener for each Store
 	for _, key := range storeKeys {
 		listeners[key] = append(listeners[key], listener)
 	}
@@ -72,5 +72,5 @@ func (e exampleStreamingService) Close() error {
 }
 
 func (e exampleStreamingService) HaltAppOnDeliveryError() bool {
-	panic("implement me")
+	return true
 }
